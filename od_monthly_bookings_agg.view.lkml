@@ -1,45 +1,21 @@
-view: customers_md {
-  sql_table_name: cortex_reporting.AccountingDocumentsReceivable
+view: od_monthly_bookings_agg  {
+  sql_table_name: 'MIDT_CONSUMPTION.CLIENT_AIRPORT_PAIR_DIM' ;;
 
-  dimension: CountryKey_LAND1 {
+  dimension: GDS_ID {
+    type: 'string'
+    primary_key: 'yes'
+    sql: {$Table}.GDS_ID
   }
 
-  dimension: NAME1_NAME1 {
+  dimension: Departure_Date_key {
+    type: 'date'
+    primary_key: 'no'
+    sql: {$Table}.DEPARTURE_DATE
   }
 
-  dimension: City_ORT01 {
-  }
-
-  dimension: Company_City {
-  }
-
-  dimension: CompanyText_BUTXT {
-  }
-
-  dimension: Company_Country {
-  }
-
-  dimension: AccountingDocumentnumber_BELNR {
-  }
-
-  dimension: AccountsReceivable {
-  }
-
-  dimension: BadDebt_DMBTR {
-  }
-
-  dimension: BillingDocument_VBELN {
-  }
-
-  dimension: ClearedAfterDueDate {
-  }
-
-  dimension: ClearedOnOrBeforeDueDate {
-  }
-
-  dimension: Client_MANDT {
-  }
-
-  dimension: DocumentDateInDocument_BLDAT {
+  dimension: Passenger_Count {
+    type: 'number'
+    primary_key: 'no'
+    sql: {$Table}.PASSENGER_COUNT
   }
 }

@@ -1,13 +1,19 @@
-connection: cert
-# include all views in this project
-include: midt_connection_cert
-include:  
+connection: 'midt_prod_connect'
+include: '/Views/**/*.view'
 
-explore: data_intelligence_ar{
-
-  join: billing{
-    type: left_outer
-    sql_on: sales_order.sales_document_vbeln=billing.sales_document_aubel
-    relationship: one_to_many
+explore: OD_Monthly_Bookings{
+ from: od_monthly_bookings_agg
+   join: OD_GDS{
+   type: left_outer
+   sql_on: OD_Monthly_Bookings.GDS_ID=OD_GDS.GDS_ID
+   sql_where: OD_GDS.GDS_TYPE_CODE='00' ;;
+   relationship: many_to_one
  }
-} 
+
+   join: OD_MONTHLY{
+   type: left_outer
+   sql_on: OD_Monthly_Bookings.Airport_Pair_Dir=OD_Market.AIRPP_ID
+   sql_where: OD_Market.CLIENT_ID=2 ;;
+   relationship: many_to_one
+ }
+}

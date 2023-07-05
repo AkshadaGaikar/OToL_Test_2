@@ -1,36 +1,27 @@
-view: billing  {
-  sql_table_name: cortex_reporting.billing
+view: OD_GDS  {
+  sql_table_name: 'MIDT_CONSUMPTION.GDS_DIM' ;;
 
-  dimension: BusinessArea_GSBER {
+  dimension: GDS_ID {
+    type: 'string'
+    primary_key: 'yes'
+    sql: {$Table}.GDS_ID
   }
 
-  dimension: CityCode_CITYC {
+  dimension: GDS_TYPE_CODE {
+    type: 'string'
+    primary_key: 'no'
+    sql: {$Table}.GDS_TYPE_CODE
   }
 
-  dimension: Client_MANDT {
+  dimension: GDS_Name {
+    type: 'string'
+    primary_key: 'no'
+    sql: {$Table}.GDS_NAME
   }
 
-  dimension: CompanyCode_BUKRS {
-  }
-
-  dimension: ConditionItemNumber_KPOSN {
-  }
-
-  dimension: ContryCode_COUNC {
-  }
-
-  dimension: CostCenter_KOSTL {
-  }
-
-  dimension: CountryOfSalesTaxIDNumber_STCEG_L {
-  }
-
-  dimension: DestinationCountry_LAND1 {
-  }
-
-  dimension: DistributionChannel_VTWEG {
-  }
-
-  dimension: Division_SPART {
+  dimension: GDS_Code {
+    type: 'string'
+    primary_key: 'no'
+    sql: {$Table}.GDS_CODE
   }
 }
