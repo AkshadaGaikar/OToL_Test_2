@@ -4,24 +4,28 @@ view: OD_GDS  {
   dimension: GDS_ID {
     type: string
     primary_key: yes
-    sql: {$Table}.GDS_ID
+    sql: ${Table}.GDS_ID
+    hidden: yes
   }
 
   dimension: GDS_TYPE_CODE {
     type: string
     primary_key: no
-    sql: {$Table}.GDS_TYPE_CODE
+    sql: ${Table}.GDS_TYPE_CODE
+    hidden: no
   }
 
   dimension: GDS_Name {
     type: string
     primary_key: no
-    sql: {$Table}.GDS_NAME
+    sql: ${Table}.GDS_NAME
+    hidden: no
   }
 
   dimension: GDS_Code {
     type: string
     primary_key: no
-    sql: {$Table}.GDS_CODE
+    sql: ${Table}.GDS_CODE
+    hidden: no
   }
 }

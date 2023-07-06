@@ -4,18 +4,21 @@ view: od_monthly_bookings_agg  {
   dimension: GDS_ID {
     type: string
     primary_key: yes
-    sql: {$Table}.GDS_ID
+    sql: ${Table}.GDS_ID
+    hidden: no
   }
 
   dimension: Departure_Date_key {
     type: date
     primary_key: no
-    sql: {$Table}.DEPARTURE_DATE
+    sql: ${Table}.DEPARTURE_DATE
+    hidden: no
   }
 
   dimension: Passenger_Count {
     type: number
     primary_key: no
-    sql: {$Table}.PASSENGER_COUNT
+    sql: ${Table}.PASSENGER_COUNT
+    hidden: no
   }
 }
