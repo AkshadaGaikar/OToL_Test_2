@@ -8,6 +8,11 @@ view: od_monthly_bookings_agg  {
     hidden: no
   }
 
+  dimension: Airport_Pair_Dir {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.AIRPORT_PAIR_DIR ;;
+  }
   dimension: Departure_Date_key {
     type: date
     primary_key: no
@@ -21,4 +26,11 @@ view: od_monthly_bookings_agg  {
     sql: ${TABLE}.PASSENGER_COUNT ;;
     hidden: no
   }
+
+
+  measure: Passenger_Count_M{
+    type: sum
+    sql:${Passenger_Count}  ;;
+  }
+
 }
